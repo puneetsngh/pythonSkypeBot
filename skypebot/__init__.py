@@ -12,17 +12,8 @@ from skypebot import skype_api
 class SkypeBot:
     
     def __init__(self, client_id,client_secret):
-        #self.token = token
-        self.update_listener = []
-        self.last_update_id = 0
-        self.exc_info = None
-
-        self.message_handlers = []
-
-        self.threaded = threaded
-        if self.threaded:
-            self.worker_pool = util.ThreadPool()
-            
+        
+             
         def token_func():
             global token
             payload = "grant_type=client_credentials&client_id="+client_id+"&client_secret="+client_secret+"&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default"
