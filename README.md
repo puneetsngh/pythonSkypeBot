@@ -173,3 +173,11 @@ I will mention every person's name who will contribute for it's developement.
 I hope you all will accept this initial start from me and start creating bots in python for skype too.
 
 
+
+##Bots created using this API Wrapper
+
+<a href="https://www.youtube.com/watch?v=SxTkIG-YlkQ
+" target="_blank"><img src="https://img.youtube.com/vi/SxTkIG-YlkQ/maxresdefault.jpg" 
+alt="Sift Bot for Skype" width="420" height="315" border="10" /></a>
+
+
