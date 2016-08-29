@@ -40,8 +40,14 @@ def webhook():
   return 'Ok'
 
 def process_message(data):
-  sender =sender = data['conversation']['id']
+  sender = data['conversation']['id']
   bot.send_message(sender,"Hello, lets have fun.")
+  
+if __name__ == '__main__':
+
+    context = ('/etc/ssl/localcerts/mycert.pem', '/etc/ssl/localcerts/mykey.key')
+
+    app.run(host='127.0.0.1',port=8000,debug=False,ssl_context=context)
 ```
 
 
