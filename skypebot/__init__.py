@@ -31,9 +31,9 @@ class SkypeBot:
         self.t.daemon = True
         self.t.start()
         
-    def send_message(self,sender, text):
+    def send_message(self,service,sender, text):
 
-        return skype_api.send_message(token,sender, text)
+        return skype_api.send_message(token,service,sender, text)
 
     def create_card_image(self,url,alt=None):
         return skype_api.create_card_image(url,alt)
@@ -44,13 +44,13 @@ class SkypeBot:
     def create_card_attachment(self,type,title,subtitle=None,text=None,images=None,buttons=None):
         return skype_api.create_card_attachment(type,title,subtitle,text,images,buttons)
 
-    def send_media(self,sender,type,url):
-        return skype_api.send_media(token,sender,type,url)
+    def send_media(self,service,sender,type,url):
+        return skype_api.send_media(token,service,sender,type,url)
         
-    def send_card(self,sender,type,card_attachment,summary=None,text=None):
-        return skype_api.send_card(token, sender,type,card_attachment,summary,text)
+    def send_card(self,service,sender,type,card_attachment,summary=None,text=None):
+        return skype_api.send_card(token,service, sender,type,card_attachment,summary,text)
         
     #Not yet supported
     
-    def send_action(self,sender):
-        return skype_api.send_action(token,sender) 
+    def send_action(self,service,sender):
+        return skype_api.send_action(token,service,sender) 
