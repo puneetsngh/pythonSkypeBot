@@ -41,7 +41,8 @@ def webhook():
 
 def process_message(data):
   sender = data['conversation']['id']
-  bot.send_message(sender,"Hello, lets have fun.")
+  service = data['serviceUrl']
+  bot.send_message(service,sender,"Hello, lets have fun.")
   
 if __name__ == '__main__':
 
