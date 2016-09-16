@@ -19,13 +19,13 @@ sys.setdefaultencoding('utf8')
 
 #text should be UTF-8 and has a 320 character limit
 
-def send_message(token,sender,text):
+def send_message(token,service,sender,text):
     try:
         payload = {
-                    "type": "message/text",
+                    "type": "message",
                     "text": text
                     }
-        r = requests.post('https://apis.skype.com/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
+        r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
 
         print r
 
@@ -80,19 +80,19 @@ def create_card_attachment(type,title,subtitle,text,images,buttons):
 
 
 
-def send_media(token,sender,type,url):
+def send_media(token,service,sender,type,url):
     try:
         response = requests.get(url).content
         
         payload = {
-            "type":"message/image",  
+            "type":"message",  
             "attachments": [{
                 "contentType":type,
-                "contentUrl": 'data:'+type+';base64,'+response.encode("base64").replace("\n", "")
+                "contentUrl": url
             }]
         }
         
-        r = requests.post('https://apis.skype.com/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
+        r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
         print r
     except Exception as e:
         print e
@@ -101,16 +101,17 @@ def send_media(token,sender,type,url):
         
 	
 	
-def send_card(token,sender,type,card_attachment,summary,text):
+def send_card(token,service,sender,type,card_attachment,summary,text):
     try:
         payload = {
-        "type":"message/card."+type,
+        "type":"message,
+        "attachmentLayout":type,
         "summary":summary,
         "text":text,
         "attachments":card_attachment
         }
         
-        r = requests.post('https://apis.skype.com/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
+        r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
         print payload
         print r
     except Exception as e:
@@ -119,12 +120,12 @@ def send_card(token,sender,type,card_attachment,summary,text):
         
 #typing action not yet supported
         
-def send_action(token,sender):
+def send_action(token,service,sender):
     try:
         payload = {
-            "type":"message/typing"
+            "type":"typing"
         }
-        r = requests.post('https://apis.skype.com/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
+        r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
         print payload
         print r
     except Exception as e:
