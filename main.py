@@ -30,6 +30,7 @@ def webhook():
   if request.method == 'POST':
     try:
         data = json.loads(request.data)
+        service = data['serviceUrl']
         if data['type'] =='conversationUpdate':
             sender = data['conversation']['id']
             if 'membersRemoved' in data.keys():
@@ -40,7 +41,7 @@ def webhook():
             elif 'membersAdded' in data.keys():
                 new_member = data['recipient']['name']
                 
-                bot.send_message(sender,"Hi, I am emoji bot. I can transform your text in messages to emojies. I also have an emoji game to play simply send @emojirobor #emojigame")
+                bot.send_message(service,sender,"Hi, I am emoji bot. I can transform your text in messages to emojies. I also have an emoji game to play simply send @emojirobor #emojigame")
             else:
                 pass
         elif data['type'] =='message':
@@ -51,14 +52,14 @@ def webhook():
                 
                 #do what ever you want to do here for GROUPS
                     
-                process_messages(sender,text)
+                process_messages(sender,text,service)
                     
             else:
                 #private chat
                 sender = data['conversation']['id']
                 print sender
                 text = data['text']
-                process_messages(sender,text)
+                process_messages(sender,text,service)
 
         elif data['type'] == 'contactRelationUpdate':
         #bot added for private chat
@@ -66,7 +67,7 @@ def webhook():
             if data['action']=='add':
             
                 sender = data['conversation']['id']
-                bot.send_message(sender,"Hi, I am a bot.")
+                bot.send_message(service,sender,"Hi, I am a bot.")
                 pass
             elif data['action']=='remove':
                 pass
@@ -82,8 +83,8 @@ def webhook():
 
 
 
-def process_messages(sender,text):
-  bot.send_message(sender,"Hello World")
+def process_messages(sender,text,service):
+  bot.send_message(service,sender,"Hello World")
         
         
         
