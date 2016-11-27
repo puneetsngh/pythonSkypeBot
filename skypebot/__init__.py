@@ -44,6 +44,10 @@ class SkypeBot:
     def create_card_attachment(self,type,title,subtitle=None,text=None,images=None,buttons=None):
         return skype_api.create_card_attachment(type,title,subtitle,text,images,buttons)
 
+    def create_animation(self,type,url,images,title=None,subtitle=None,text=None,buttons=None):
+    return skype_api.create_animation(type,url,images,title,subtitle,text,buttons)
+    
+
     def send_media(self,service,sender,type,url):
         return skype_api.send_media(token,service,sender,type,url)
         
