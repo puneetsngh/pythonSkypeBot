@@ -131,3 +131,23 @@ def send_action(token,service,sender):
     except Exception as e:
         print e
         pass
+
+
+def create_animation(type,url,images,title,subtitle,text,buttons):
+    card_animation={}
+    card_animation={
+        "contentType": "application/vnd.microsoft.card."+type,
+        "content": {
+            "autoloop":True,
+            "autostart":True,
+            "shareable":True,
+            "media":[{"profile":"gif","url":url}],
+            "title": title,
+            "subtitle": subtitle,
+            "text": text,
+            "images": images,
+            "buttons": buttons
+            }
+        }
+    
+    return card_animation
