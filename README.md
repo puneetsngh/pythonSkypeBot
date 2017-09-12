@@ -167,7 +167,7 @@ def process_message(sender,text):
 5. JWT Security Support
 
 
-#### This is the first wrapper for skype bot api. I tried to keep it really simple from understanding point of view. If you feel that you have something to contribute and imporve this wrapper, you are welcome to send pull requests.
+#### This is the first wrapper for skype bot api. I tried to keep it really simple from understanding point of view. If you feel that you have something to contribute and improve this wrapper, you are welcome to send pull requests.
 
 I will mention every person's name who will contribute for it's developement.
 
