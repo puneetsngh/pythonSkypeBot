@@ -148,7 +148,7 @@ def process_message(sender,text):
 ### Send Media Attachment
 
 | Property       | Description |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------|
 | content type      | mimetype/contenttype of the URL |
 | content url      |a link to the actual file  |
 
