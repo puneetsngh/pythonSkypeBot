@@ -12,7 +12,7 @@ Read through this guide before beginning bot development [Skype v3 bot Developme
 3. Flask should be installed.
 4. A webhook to receive messages. I used ngrok for development and created my own webhook using this --> [Create Proxy based Webhooks for Multiple Bots](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
 
-##Writing your First Bot
+## Writing your First Bot
 
 A template main.py is provided. You should use that as your bot page.
 
@@ -84,12 +84,12 @@ if data['type'] =='message':
 
 ### Create Buttons
 
-| Action Type       | Content of value property |
-| ------------- |:-------------:| -----:|
-| openUrl       | URL to be opened in the built-in browser.  |
-| imBack      | Text of message which client will sent back to bot as ordinary chat message. All other participants will see that was posted to the bot and who posted this.    |
-| call  | Destination for a call in following format: "tel:123123123123"   |
-|showImage |show image referenced by URL |
+| Action Type   | Content of value property |
+| ------------- |---------------------------|
+| openUrl       | URL to be opened in the built-in browser.|
+| imBack        | Text of message which client will sent back to bot as ordinary chat message. All other participants will see that was posted to the bot and who posted this. |
+| call          | Destination for a call in following format: "tel:123123123123"   |
+|showImage      |show image referenced by URL |
 
 Tip : You can use meta tags in imBack action to send hidden information.
 
