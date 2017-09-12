@@ -2,10 +2,10 @@
 
 Python Wrapper for Skype Bot API
 
-##Initial Recommedation :
+### Initial Recommedation :
 Read through this guide before beginning bot development [Skype v3 bot Development](https://docs.botframework.com/en-us/support/upgrade-to-v3/), [Activities](https://docs.botframework.com/en-us/csharp/builder/sdkreference/activities.html) [Attachments, Cards, Actions](https://docs.botframework.com/en-us/skype/getting-started/#navtitle)
 
-##Requirements :
+### Requirements :
 
 1. This API is tested with Python 2.7.
 2. Client id and Client Secret from the app you will create on [Register a Bot](https://dev.botframework.com/bots/new)
@@ -16,7 +16,7 @@ Read through this guide before beginning bot development [Skype v3 bot Developme
 
 A template main.py is provided. You should use that as your bot page.
 
-###Simple Echo Bot
+### Simple Echo Bot
 
 ```
 import skypebot
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 ```
 
 
-###When you Add Bot for 1:1 Conversation
+### When you Add Bot for 1:1 Conversation
 
 <img src="https://docs.botframework.com/en-us/images/skype/skype-bot-profile.png" alt="screenshot"><img src="https://docs.botframework.com/en-us/images/skype/skype-bot-welcome.png" alt="screenshot">
 
@@ -69,7 +69,7 @@ if data['type'] == 'contactRelationUpdate':
 ```
 
 
-###Conversation in Groups
+### Conversation in Groups
 
 <img src="https://docs.botframework.com/en-us/images/skype/skype-bot-at-mention.png" alt="screenshot">
 
@@ -82,7 +82,7 @@ if data['type'] =='message':
 ```
 
 
-###Create Buttons
+### Create Buttons
 
 | Action Type       | Content of value property |
 | ------------- |:-------------:| -----:|
@@ -99,7 +99,7 @@ button2 = bot.create_buttons("openUrl","test3","https://www.youtube.com/watch/?v
 ```
 
 
-##Attachment Cards
+## Attachment Cards
 
 1. Hero card
 2. Thumbnail card
@@ -107,7 +107,7 @@ button2 = bot.create_buttons("openUrl","test3","https://www.youtube.com/watch/?v
 4. Sign in card #Not Implemented in this wrapper
 5. Receipt card #Not implemented in this wrapper
 
-###Send Hero Card Attachment
+### Send Hero Card Attachment
 
 <img src="https://docs.botframework.com/en-us/images/skype/skype-bot-hero-card.png" alt="screenshot">
 
@@ -126,7 +126,7 @@ def process_message(sender,text):
             bot.send_card(sender,"carousel", [attachment1],text="hello")
 ```
 
-###Send Carousel Attachment
+### Send Carousel Attachment
 
 <img src="https://docs.botframework.com/en-us/images/skype/skype-bot-carousel-card.png" alt="screenshot">
 
@@ -145,7 +145,7 @@ def process_message(sender,text):
             bot.send_card(sender,"carousel", [attachment1,attachment1,attachment1,attachment1,attachment1],text="hello")
 ```
 
-###Send Media Attachment
+### Send Media Attachment
 
 | Property       | Description |
 | ------------- |:-------------:| -----:|
@@ -158,7 +158,7 @@ def process_message(sender,text):
   bot.send_media(sender,"image/jpg", 'http://foo.com/1312312 ')
 ```
 
-###To Do's
+### To Do's
 
 1. Message Handlers (Done, will update if other contribute for its development)
 2. Threading (Done, will update if other contribute for its development)
@@ -167,7 +167,7 @@ def process_message(sender,text):
 5. JWT Security Support
 
 
-####This is the first wrapper for skype bot api. I tried to keep it really simple from understanding point of view. If you feel that you have something to contribute and imporve this wrapper, you are welcome to send pull requests.
+#### This is the first wrapper for skype bot api. I tried to keep it really simple from understanding point of view. If you feel that you have something to contribute and imporve this wrapper, you are welcome to send pull requests.
 
 I will mention every person's name who will contribute for it's developement.
 
@@ -175,7 +175,7 @@ I hope you all will accept this initial start from me and start creating bots in
 
 
 
-##Bots created using this API Wrapper
+## Bots created using this API Wrapper
 
 <a href="https://www.youtube.com/watch?v=SxTkIG-YlkQ
 " target="_blank"><img src="https://img.youtube.com/vi/SxTkIG-YlkQ/maxresdefault.jpg" 
